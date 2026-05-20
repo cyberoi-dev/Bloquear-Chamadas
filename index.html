@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloqueador de Ligações</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .app {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    .switch {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      padding: 12px;
+      background: #eee;
+      border-radius: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    small {
+      display: block;
+      margin-top: 15px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>📵 Bloqueador de Ligações</h1>
+
+    <div class="switch">
+      <span>Bloquear números sem nome salvo</span>
+      <input type="checkbox" id="blockUnknown">
+    </div>
+
+    <div class="switch">
+      <span>Permitir contatos salvos</span>
+      <input type="checkbox" checked disabled>
+    </div>
+
+    <button onclick="ativarBloqueio()">Ativar Proteção</button>
+
+    <div class="status" id="status">Proteção desativada</div>
+
+    <small>
+      Demonstração em HTML. Para bloquear chamadas reais em Android, é necessário transformar em app nativo com permissões de sistema.
+    </small>
+  </div>
+
+  <script>
+    function ativarBloqueio() {
+      const ativo = document.getElementById('blockUnknown').checked;
+      const status = document.getElementById('status');
+
+      if (ativo) {
+        status.innerText = '✅ Proteção ativada: números sem nome salvo serão bloqueados';
+      } else {
+        status.innerText = '❌ Proteção desativada';
+      }
+    }
+  </script>
+</body>
+</html>
